@@ -28,3 +28,9 @@ export AWS_DEFAULT_REGION=""
 export ROLLBAR_ACCESS_TOKEN=""
 gp env ROLLBAR_ACCESS_TOKEN=""
 
+
+export DB_SG_ID="sg-0f409bafbcb1af379"
+gp env DB_SG_ID="sg-0f409bafbcb1af379"
+
+export DB_SG_RULE_ID="sgr-039fa89c610346f8b"
+gp env DB_SG_RULE_ID="sgr-039fa89c610346f8b"
