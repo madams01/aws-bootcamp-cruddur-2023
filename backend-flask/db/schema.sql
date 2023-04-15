@@ -1,16 +1,14 @@
-CREATE EXTENSION IF NOT EXISTS "uuid-ossp";
-
 DROP TABLE IF EXISTS public.users;
-DROP TABLE IF EXISTS public.activities;
-
 CREATE TABLE public.users (
   uuid UUID DEFAULT uuid_generate_v4() PRIMARY KEY,
   display_name text,
   handle text,
+  email text NOT NULL,
   cognito_user_id text,
   created_at TIMESTAMP default current_timestamp NOT NULL
 );
 
+DROP TABLE IF EXISTS public.activities;
 CREATE TABLE public.activities (
   uuid UUID DEFAULT uuid_generate_v4() PRIMARY KEY,
   user_uuid UUID NOT NULL,
