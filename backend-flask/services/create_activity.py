@@ -43,8 +43,7 @@ class CreateActivity:
             }
         else:
             expires_at = (now + ttl_offset)
-            uuid = CreateActivity.create_activity(
-                user_handle, message, expires_at)
+            uuid = CreateActivity.create_activity(user_handle, message, expires_at)
 
             object_json = CreateActivity.query_object_activity(uuid)
             model['data'] = object_json
@@ -55,11 +54,9 @@ class CreateActivity:
         uuid = db.query_commit(sql,
                                handle=handle,
                                message=message,
-                               expires_at=expires_at
-                               )
+                               expires_at=expires_at)
         return uuid
 
     def query_object_activity(uuid):
         sql = db.read_sql_template('activities', 'object')
-        return db.query_object_json(sql, uuid=uuid
-                                    )
+        return db.query_object_json(sql, uuid=uuid)
